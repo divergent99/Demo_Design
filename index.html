@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EnrollPath — School to College Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <!-- Demo Banner -->
+  <div class="demo-banner">
+    🚧 This is a <strong>demo site</strong> — no real auth, no real data. Built for presentation purposes only.
+  </div>
+
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="page-wrapper" id="app">
+
+    <!-- ═══ NAV ═══ -->
+    <nav class="topnav" id="topnav">
+      <div class="nav-logo">Enroll<span>Path</span></div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#colleges">Colleges</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#" class="nav-cta" id="open-modal-btn">Sign In</a>
+      </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dot"></span>
+            Academic Year 2025–26 Enrollment Now Open
+          </div>
+          <h1 class="hero-title">
+            Your path from<br />
+            <em>school to college,</em><br />
+            simplified.
+          </h1>
+          <p class="hero-sub">
+            One unified portal for students, educators, and parents.
+            Track applications, verify documents, and stay in sync — every step of the way.
+          </p>
+          <div class="hero-cta-group">
+            <button class="btn-primary" id="hero-signin-btn">Get Started Free →</button>
+            <button class="btn-ghost">Watch Demo ▶</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-pill"><strong>12,400+</strong> students enrolled</div>
+            <div class="stat-sep">·</div>
+            <div class="stat-pill"><strong>340+</strong> partner colleges</div>
+            <div class="stat-sep">·</div>
+            <div class="stat-pill"><strong>98%</strong> satisfaction</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-dashboard-mockup">
+            <div class="mockup-bar">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span class="mockup-url">enrollpath.in/dashboard</span>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-sidebar">
+                <div class="ms-logo">EP</div>
+                <div class="ms-item active"></div>
+                <div class="ms-item"></div>
+                <div class="ms-item"></div>
+                <div class="ms-item"></div>
+              </div>
+              <div class="mockup-content">
+                <div class="mc-header">
+                  <div class="mc-title-block">
+                    <div class="mc-title"></div>
+                    <div class="mc-sub"></div>
+                  </div>
+                  <div class="mc-badge">Live</div>
+                </div>
+                <div class="mc-stats">
+                  <div class="mc-stat teal"><span>94.6%</span><small>Score</small></div>
+                  <div class="mc-stat gold"><span>3/5</span><small>Docs</small></div>
+                  <div class="mc-stat blue"><span>2</span><small>Applied</small></div>
+                </div>
+                <div class="mc-progress-block">
+                  <div class="mc-prog-label">Application Progress</div>
+                  <div class="mc-prog-track"><div class="mc-prog-fill" style="width:60%"></div></div>
+                  <div class="mc-prog-label" style="margin-top:8px">Documents Uploaded</div>
+                  <div class="mc-prog-track"><div class="mc-prog-fill" style="width:40%;background:var(--gold)"></div></div>
+                </div>
+                <div class="mc-rows">
+                  <div class="mc-row"><div class="mc-row-dot teal"></div><div class="mc-row-line long"></div><div class="mc-row-badge green">✓</div></div>
+                  <div class="mc-row"><div class="mc-row-dot gold"></div><div class="mc-row-line med"></div><div class="mc-row-badge amber">⏳</div></div>
+                  <div class="mc-row"><div class="mc-row-dot dim"></div><div class="mc-row-line short"></div><div class="mc-row-badge dim">–</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating notification cards -->
+          <div class="hero-float card-f1">
+            <div class="hf-icon">✓</div>
+            <div><div class="hf-title">IIT Bombay</div><div class="hf-sub">Application submitted</div></div>
+          </div>
+          <div class="hero-float card-f2">
+            <div class="hf-icon" style="background:var(--gold-dim);color:var(--gold)">📄</div>
+            <div><div class="hf-title">Marksheet verified</div><div class="hf-sub">By Mrs. Priya Nair</div></div>
+          </div>
+          <div class="hero-float card-f3">
+            <div class="hf-icon" style="background:var(--info-bg);color:var(--info)">🎓</div>
+            <div><div class="hf-title">Seat Allocated</div><div class="hf-sub">NIT Trichy · Round 2</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint">
+        <div class="scroll-arrow"></div>
+        <span>Scroll to explore</span>
+      </div>
+    </section>
+
+    <!-- ═══ TRUSTED BY ═══ -->
+    <section class="trusted-by">
+      <div class="trusted-inner">
+        <span class="trusted-label">Trusted by schools across India</span>
+        <div class="trusted-logos">
+          <span>DPS R.K. Puram</span>
+          <span>Kendriya Vidyalaya</span>
+          <span>Ryan International</span>
+          <span>Amity School</span>
+          <span>Bal Bharati Public School</span>
+          <span>Modern School Barakhamba</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURES ═══ -->
+    <section class="features section-pad" id="features">
+      <div class="container">
+        <div class="section-label">What's inside</div>
+        <div class="section-header-row">
+          <h2 class="section-title">Built for everyone<br/><em>in the process</em></h2>
+          <p class="section-sub">Three purpose-built dashboards so students, teachers, and parents each get exactly what they need — nothing more, nothing less.</p>
+        </div>
+        <div class="features-grid">
+
+          <div class="feat-card">
+            <div class="feat-icon student-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            </div>
+            <h3>Student Portal</h3>
+            <p>Apply to up to 5 colleges, track your documents in real-time, follow each stage, and get deadline nudges — all from one clean dashboard.</p>
+            <ul class="feat-list">
+              <li>Step-by-step application tracker</li>
+              <li>College shortlist with smart filters</li>
+              <li>Document upload checklist</li>
+              <li>Live application status</li>
+            </ul>
+            <div class="feat-cta" onclick="document.getElementById('modal-overlay').classList.add('open'); selectRole(document.querySelector('[data-role=student]'),'student')">
+              Open Student Portal →
+            </div>
+          </div>
+
+          <div class="feat-card feat-card--highlight">
+            <div class="feat-badge">Most used</div>
+            <div class="feat-icon teacher-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3>Teacher Dashboard</h3>
+            <p>Review, approve, and manage every student application from a single command center. Bulk actions, search, filters, one-click notifications.</p>
+            <ul class="feat-list">
+              <li>Full applications table + search</li>
+              <li>Approve / Reject / Nudge actions</li>
+              <li>Class completion analytics</li>
+              <li>Bulk notification sender</li>
+            </ul>
+            <div class="feat-cta" style="color:var(--gold);border-color:rgba(240,192,96,0.2)" onclick="document.getElementById('modal-overlay').classList.add('open'); selectRole(document.querySelector('[data-role=teacher]'),'teacher')">
+              Open Teacher Portal →
+            </div>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-icon parent-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Parent View</h3>
+            <p>Stay informed without chasing emails. Get live timeline updates, fee payment reminders, and a direct message thread with the school coordinator.</p>
+            <ul class="feat-list">
+              <li>Live enrollment timeline</li>
+              <li>Pending action alerts</li>
+              <li>Fee tracker with Pay button</li>
+              <li>Direct messaging thread</li>
+            </ul>
+            <div class="feat-cta" style="color:var(--coral);border-color:rgba(255,107,107,0.2)" onclick="document.getElementById('modal-overlay').classList.add('open'); selectRole(document.querySelector('[data-role=parent]'),'parent')">
+              Open Parent Portal →
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HOW IT WORKS ═══ -->
+    <section class="how-it-works section-pad" id="how-it-works">
+      <div class="container">
+        <div class="section-label">Process</div>
+        <h2 class="section-title" style="margin-bottom:0.5rem">From registration<br/><em>to admission, tracked.</em></h2>
+        <p class="section-sub" style="margin-bottom:4rem">Every milestone in one place. No spreadsheets, no chasing emails, no missed deadlines.</p>
+
+        <div class="hiw-layout">
+          <div class="hiw-steps-list">
+            <div class="hiw-item reveal" data-step="0">
+              <div class="hiw-num">01</div>
+              <div class="hiw-body">
+                <h4>Create your profile</h4>
+                <p>Students register with school credentials. Academic records and stream details are pre-filled from the school database — no double entry.</p>
+                <div class="hiw-tags"><span>5 min setup</span><span>Auto-fill</span><span>Secure</span></div>
+              </div>
+            </div>
+            <div class="hiw-item reveal" data-step="1">
+              <div class="hiw-num">02</div>
+              <div class="hiw-body">
+                <h4>Upload your documents</h4>
+                <p>A guided checklist walks through every required document — marksheets, Aadhaar, TC, photo. Teachers verify in real time with a single click.</p>
+                <div class="hiw-tags"><span>Smart checklist</span><span>Live verification</span></div>
+              </div>
+            </div>
+            <div class="hiw-item reveal" data-step="2">
+              <div class="hiw-num">03</div>
+              <div class="hiw-body">
+                <h4>Shortlist &amp; apply</h4>
+                <p>Browse 340+ partner colleges, filter by stream and cut-off, and submit to up to 5 institutions in a single unified flow — one form, many applications.</p>
+                <div class="hiw-tags"><span>340+ colleges</span><span>Smart filters</span><span>Bulk apply</span></div>
+              </div>
+            </div>
+            <div class="hiw-item reveal" data-step="3">
+              <div class="hiw-num">04</div>
+              <div class="hiw-body">
+                <h4>Track to admission</h4>
+                <p>Follow merit lists, counselling rounds, and seat allocation in real time. Parents and teachers get automatic status updates at every stage.</p>
+                <div class="hiw-tags"><span>Live status</span><span>Auto-notifications</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hiw-visual">
+            <div class="hiw-timeline-card">
+              <div class="htc-header">Aarav Sharma · Application Timeline</div>
+              <div class="htc-items">
+                <div class="htc-item done">
+                  <div class="htc-dot done"></div>
+                  <div class="htc-content">
+                    <div class="htc-title">Profile created</div>
+                    <div class="htc-date">Jan 10, 2025</div>
+                  </div>
+                </div>
+                <div class="htc-item done">
+                  <div class="htc-dot done"></div>
+                  <div class="htc-content">
+                    <div class="htc-title">3 of 5 docs uploaded</div>
+                    <div class="htc-date">Feb 2, 2025</div>
+                  </div>
+                </div>
+                <div class="htc-item current">
+                  <div class="htc-dot current"></div>
+                  <div class="htc-content">
+                    <div class="htc-title">Applications in progress</div>
+                    <div class="htc-date htc-now">Now · Feb 14</div>
+                  </div>
+                </div>
+                <div class="htc-item pending">
+                  <div class="htc-dot pending"></div>
+                  <div class="htc-content">
+                    <div class="htc-title">School verification</div>
+                    <div class="htc-date">Expected Feb 20–25</div>
+                  </div>
+                </div>
+                <div class="htc-item pending">
+                  <div class="htc-dot pending"></div>
+                  <div class="htc-content">
+                    <div class="htc-title">Merit list &amp; counselling</div>
+                    <div class="htc-date">Expected Mar 15–30</div>
+                  </div>
+                </div>
+                <div class="htc-item pending">
+                  <div class="htc-dot pending"></div>
+                  <div class="htc-content">
+                    <div class="htc-title">Admission confirmed</div>
+                    <div class="htc-date">Estimated May 2025</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STATS BANNER ═══ -->
+    <section class="stats-banner">
+      <div class="container">
+        <div class="sb-grid">
+          <div class="sb-item reveal">
+            <div class="sb-num">12,400+</div>
+            <div class="sb-label">Students enrolled last cycle</div>
+          </div>
+          <div class="sb-divider"></div>
+          <div class="sb-item reveal" style="--delay:0.1s">
+            <div class="sb-num">340+</div>
+            <div class="sb-label">Partner colleges nationwide</div>
+          </div>
+          <div class="sb-divider"></div>
+          <div class="sb-item reveal" style="--delay:0.2s">
+            <div class="sb-num">98%</div>
+            <div class="sb-label">Parent satisfaction rate</div>
+          </div>
+          <div class="sb-divider"></div>
+          <div class="sb-item reveal" style="--delay:0.3s">
+            <div class="sb-num">3×</div>
+            <div class="sb-label">Faster than paper enrollment</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PARTNER COLLEGES ═══ -->
+    <section class="colleges section-pad" id="colleges">
+      <div class="container">
+        <div class="section-label">Partner Colleges</div>
+        <div class="section-header-row">
+          <h2 class="section-title">340+ colleges<br/><em>already on the platform</em></h2>
+          <p class="section-sub">From IITs and NITs to leading private universities — all reachable through a single application.</p>
+        </div>
+        <div class="colleges-grid">
+          <div class="college-tile reveal">
+            <div class="ct-rank">#1</div>
+            <div class="ct-name">IIT Bombay</div>
+            <div class="ct-stream">Engineering · Science</div>
+            <div class="ct-cutoff">Cutoff: 99.5+ percentile</div>
+          </div>
+          <div class="college-tile reveal" style="--delay:0.05s">
+            <div class="ct-rank">#2</div>
+            <div class="ct-name">IIT Delhi</div>
+            <div class="ct-stream">Engineering · Science</div>
+            <div class="ct-cutoff">Cutoff: 99.3+ percentile</div>
+          </div>
+          <div class="college-tile reveal" style="--delay:0.1s">
+            <div class="ct-rank">#4</div>
+            <div class="ct-name">NIT Trichy</div>
+            <div class="ct-stream">Engineering · Science</div>
+            <div class="ct-cutoff">Cutoff: 97+ percentile</div>
+          </div>
+          <div class="college-tile reveal" style="--delay:0.15s">
+            <div class="ct-rank">#6</div>
+            <div class="ct-name">BITS Pilani</div>
+            <div class="ct-stream">Engineering · Science</div>
+            <div class="ct-cutoff">BITSAT 300+ score</div>
+          </div>
+          <div class="college-tile reveal" style="--delay:0.2s">
+            <div class="ct-rank">#1</div>
+            <div class="ct-name">SRCC Delhi</div>
+            <div class="ct-stream">Commerce · Economics</div>
+            <div class="ct-cutoff">Cutoff: 99%+ in boards</div>
+          </div>
+          <div class="college-tile reveal" style="--delay:0.25s">
+            <div class="ct-rank">#2</div>
+            <div class="ct-name">Lady Shri Ram</div>
+            <div class="ct-stream">Arts · Humanities</div>
+            <div class="ct-cutoff">Cutoff: 98%+ in boards</div>
+          </div>
+          <div class="college-tile reveal" style="--delay:0.3s">
+            <div class="ct-rank">#5</div>
+            <div class="ct-name">VIT Vellore</div>
+            <div class="ct-stream">Engineering · CS</div>
+            <div class="ct-cutoff">VITEEE qualifying</div>
+          </div>
+          <div class="college-tile college-tile--more reveal" style="--delay:0.35s">
+            <div class="ct-more-num">+333</div>
+            <div class="ct-more-label">more colleges</div>
+            <div class="ct-more-sub">Science · Commerce · Arts</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIALS ═══ -->
+    <section class="testimonials section-pad" id="testimonials">
+      <div class="container">
+        <div class="section-label" style="text-align:center">What people say</div>
+        <h2 class="section-title" style="text-align:center;margin-bottom:0.5rem">Trusted by 12,400+<br/><em>students last cycle</em></h2>
+        <p class="section-sub" style="text-align:center;margin:0 auto 3.5rem;max-width:480px">Real feedback from the students, parents, and teachers who use EnrollPath every day.</p>
+        <div class="testi-grid">
+          <div class="testi-card reveal">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"EnrollPath cut our document chase from 3 weeks to 3 days. Every parent now knows exactly where their child's application stands — no more calls asking 'what's happening'."</div>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--gold-dim);color:var(--gold)">PN</div>
+              <div>
+                <div class="testi-name">Mrs. Priya Nair</div>
+                <div class="testi-role">Class XII Coordinator, DPS R.K. Puram</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card testi-card--accent reveal" style="--delay:0.1s">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"I applied to 5 colleges in one afternoon. The checklist told me exactly what was missing and I didn't miss a single deadline. Got into NIT Trichy CSE — my first choice."</div>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--teal-dim);color:var(--teal)">AS</div>
+              <div>
+                <div class="testi-name">Aarav Sharma</div>
+                <div class="testi-role">Student → B.Tech CSE, NIT Trichy</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal" style="--delay:0.2s">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"The fee tracker saved me from missing the IIT Bombay application window. One-click payment, instant confirmation. No more running to the bank for challans."</div>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--coral-dim);color:var(--coral)">RS</div>
+              <div>
+                <div class="testi-name">Mr. Rajan Sharma</div>
+                <div class="testi-role">Parent, DPS R.K. Puram</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal" style="--delay:0.05s">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"Managing 84 students' applications was a nightmare with spreadsheets. EnrollPath gave me a single dashboard, bulk approve, and one-click reminders. Game changer."</div>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--info-bg);color:var(--info)">SK</div>
+              <div>
+                <div class="testi-name">Mr. Suresh Kumar</div>
+                <div class="testi-role">Vice Principal, Kendriya Vidyalaya</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal" style="--delay:0.15s">
+            <div class="testi-stars">★★★★☆</div>
+            <div class="testi-quote">"My daughter was applying to 4 different streams. The multi-application flow on EnrollPath was surprisingly smooth. Documents uploaded once, used everywhere."</div>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--teal-dim);color:var(--teal)">AM</div>
+              <div>
+                <div class="testi-name">Mrs. Anita Mehta</div>
+                <div class="testi-role">Parent, Ryan International Noida</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal" style="--delay:0.25s">
+            <div class="testi-stars">★★★★★</div>
+            <div class="testi-quote">"The live timeline view is exactly what stressed-out parents need. I could see Meera's application move from 'submitted' to 'verified' in real time. Absolutely stress-free."</div>
+            <div class="testi-author">
+              <div class="testi-avatar" style="background:var(--gold-dim);color:var(--gold)">RP</div>
+              <div>
+                <div class="testi-name">Mr. Ramesh Pillai</div>
+                <div class="testi-role">Parent → Daughter at IIT Delhi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="faq-section section-pad" id="faq">
+      <div class="container faq-inner">
+        <div>
+          <div class="section-label">FAQ</div>
+          <h2 class="section-title">Common<br/><em>questions answered.</em></h2>
+          <p class="section-sub">Still have something on your mind? <a href="#" style="color:var(--teal);text-decoration:none">Contact us →</a></p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">Is EnrollPath free for students?<span class="faq-arrow">↓</span></div>
+            <div class="faq-a">Yes — EnrollPath is completely free for students. Schools and institutions pay for the platform on your behalf as part of their subscription.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">Which boards and streams are supported?<span class="faq-arrow">↓</span></div>
+            <div class="faq-a">EnrollPath supports CBSE, ICSE, and all major State Boards. Science (PCM/PCB), Commerce, and Arts streams are all fully supported with stream-specific college filters.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">How are documents verified?<span class="faq-arrow">↓</span></div>
+            <div class="faq-a">Documents are reviewed by your school's assigned teacher/coordinator through the Teacher Dashboard. They can approve, flag, or request re-uploads with a single click. You get notified instantly.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">Can parents track without a separate login?<span class="faq-arrow">↓</span></div>
+            <div class="faq-a">Parents have their own dedicated login linked to their child's profile. They see a simplified timeline view — no access to the detailed forms, just progress updates, alerts, and messaging.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">How many colleges can I apply to?<span class="faq-arrow">↓</span></div>
+            <div class="faq-a">The default limit is 5 colleges per student. Schools can raise this limit for exceptional students through the teacher dashboard. Application fees for each college are tracked and payable in-platform.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">Is my data secure?<span class="faq-arrow">↓</span></div>
+            <div class="faq-a">All data is encrypted at rest and in transit. Documents are stored on secure cloud infrastructure with school-level and student-level access controls. We are DPDP Act 2023 compliant.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA BANNER ═══ -->
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-glow"></div>
+          <div class="section-label" style="text-align:center">Get started</div>
+          <h2 class="cta-title">Ready to simplify<br/><em>enrollment for your school?</em></h2>
+          <p class="cta-sub">Join 340+ schools already running on EnrollPath. Setup takes less than a day. Free for students, always.</p>
+          <div class="cta-actions">
+            <button class="btn-primary" id="cta-open-btn" style="font-size:15px;padding:14px 36px">Get Started Free →</button>
+            <button class="btn-ghost" style="font-size:15px;padding:14px 28px">Request a Demo</button>
+          </div>
+          <div class="cta-note">No credit card required · Free for students · Setup in under 24 hours</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <div class="nav-logo" style="font-size:20px;margin-bottom:10px">Enroll<span>Path</span></div>
+            <p style="font-size:13px;color:var(--text-muted);max-width:220px;line-height:1.65">Simplifying school-to-college enrollment for students, educators, and parents across India.</p>
+            <div class="footer-social">
+              <a href="#">Tw</a><a href="#">Li</a><a href="#">Gh</a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <div class="footer-col">
+              <div class="footer-col-title">Product</div>
+              <a href="#features">Features</a>
+              <a href="#how-it-works">How it works</a>
+              <a href="#colleges">Partner Colleges</a>
+              <a href="#">Pricing</a>
+              <a href="#">Changelog</a>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title">Portals</div>
+              <a href="#" onclick="document.getElementById('modal-overlay').classList.add('open');selectRole(document.querySelector('[data-role=student]'),'student');return false">Student Portal</a>
+              <a href="#" onclick="document.getElementById('modal-overlay').classList.add('open');selectRole(document.querySelector('[data-role=teacher]'),'teacher');return false">Teacher Dashboard</a>
+              <a href="#" onclick="document.getElementById('modal-overlay').classList.add('open');selectRole(document.querySelector('[data-role=parent]'),'parent');return false">Parent View</a>
+              <a href="#">School Admin</a>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title">Company</div>
+              <a href="#">About us</a>
+              <a href="#">Blog</a>
+              <a href="#">Careers</a>
+              <a href="#">Press kit</a>
+              <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title">Legal</div>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">DPDP Compliance</a>
+              <a href="#">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2025 EnrollPath Technologies Pvt. Ltd. All rights reserved.</span>
+          <div style="display:flex;gap:1.5rem">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <!-- ═══ LOGIN MODAL ═══ -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="login-modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div class="modal-left">
+        <div class="modal-logo">Enroll<span>Path</span></div>
+        <h2 class="modal-title">Welcome back</h2>
+        <p class="modal-sub">Sign in to continue to your portal</p>
+        <div class="role-tabs">
+          <button class="rtab active" data-role="student" onclick="selectRole(this,'student')">Student</button>
+          <button class="rtab" data-role="teacher" onclick="selectRole(this,'teacher')">Teacher</button>
+          <button class="rtab" data-role="parent"  onclick="selectRole(this,'parent')">Parent</button>
+        </div>
+        <form class="login-form" onsubmit="handleLogin(event)">
+          <div class="field-group">
+            <label>Email / Roll No.</label>
+            <input type="text" id="login-email" placeholder="e.g. aarav.sharma@school.edu" autocomplete="off" />
+          </div>
+          <div class="field-group">
+            <label>Password</label>
+            <input type="password" id="login-pass" placeholder="••••••••" />
+          </div>
+          <div class="field-row">
+            <label class="checkbox-label"><input type="checkbox" /> Remember me</label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn-submit" id="submit-btn">
+            <span id="btn-text">Sign In</span>
+            <span id="btn-loader" class="loader" style="display:none"></span>
+          </button>
+        </form>
+        <p class="modal-footer-text">New to EnrollPath? <a href="#">Request access</a></p>
+      </div>
+      <div class="modal-right">
+        <div class="modal-artwork">
+          <div class="art-circle c1"></div>
+          <div class="art-circle c2"></div>
+          <div class="art-circle c3"></div>
+          <div class="art-quote">"Education is the passport to the future."</div>
+          <div class="art-author">— Malcolm X</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/canvas.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // CTA button
+    document.getElementById('cta-open-btn').addEventListener('click', () => {
+      document.getElementById('modal-overlay').classList.add('open');
+    });
+
+    // FAQ accordion
+    function toggleFaq(el) {
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
+    }
+    window.toggleFaq = toggleFaq;
+
+    // Scroll reveal — threshold 0 + rootMargin so elements trigger before fully in view
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('revealed');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
+
+    // Small delay so layout is settled before we observe
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        // If already in viewport on load (above fold), reveal immediately
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('revealed');
+        } else {
+          revealObserver.observe(el);
+        }
+      });
+    }, 100);
+  </script>
+</body>
+</html>

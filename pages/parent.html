@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parent Portal — EnrollPath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="../css/dashboard.css"/>
+</head>
+<body>
+<div class="demo-banner">🚧 This is a <strong>demo site</strong> — no real auth, no real data. Built for presentation purposes only.</div>
+<canvas id="bg-canvas"></canvas>
+
+<div class="dash-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">Enroll<span>Path</span></div>
+    <div class="sidebar-section">Parent Portal</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" class="active" onclick="showSection('overview',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Overview
+      </a></li>
+      <li><a href="#" onclick="showSection('timeline',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Application Timeline
+      </a></li>
+      <li><a href="#" onclick="showSection('fees',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+        Fee Payments
+      </a></li>
+      <li><a href="#" onclick="showSection('messages',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Messages
+      </a></li>
+    </ul>
+
+    <div class="sidebar-user">
+      <div class="user-avatar" style="background:var(--coral-dim);color:var(--coral)">RS</div>
+      <div class="user-info">
+        <div class="user-name">Mr. Rajan Sharma</div>
+        <div class="user-role">Parent · Aarav Sharma</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+
+    <!-- OVERVIEW -->
+    <section class="dash-section active" id="section-overview">
+      <div class="dash-header">
+        <div>
+          <h1>Aarav's Enrollment</h1>
+          <p class="header-sub">Tracking application progress for Aarav Sharma · Class XII · DPS R.K. Puram</p>
+        </div>
+        <div class="deadline-pill" style="--pill-color:var(--coral)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Deadline: Mar 30
+        </div>
+      </div>
+
+      <!-- Status summary -->
+      <div class="stats-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="stat-card anim-2">
+          <div class="stat-label">Overall Progress</div>
+          <div class="stat-value" style="color:var(--coral)">60%</div>
+          <div class="prog-bar" style="margin-top:8px"><div class="prog-fill" style="width:60%;background:var(--coral)"></div></div>
+        </div>
+        <div class="stat-card anim-2">
+          <div class="stat-label">Documents</div>
+          <div class="stat-value g">3 / 5</div>
+          <div class="stat-delta">2 still needed</div>
+        </div>
+        <div class="stat-card anim-2">
+          <div class="stat-label">Fees Due</div>
+          <div class="stat-value c">₹5,500</div>
+          <div class="stat-delta">2 applications pending</div>
+        </div>
+      </div>
+
+      <!-- Alerts -->
+      <div class="card anim-3" style="margin-bottom:1rem">
+        <div class="card-section-header"><span>Action needed from you</span><span class="badge danger">2 urgent</span></div>
+        <div class="alert-list">
+          <div class="alert-item err">
+            <div class="alert-icon">!</div>
+            <div class="alert-text">
+              <strong>Transfer Certificate not uploaded</strong>
+              <span>Ask Aarav to upload this to avoid application delays</span>
+            </div>
+          </div>
+          <div class="alert-item err">
+            <div class="alert-icon">!</div>
+            <div class="alert-text">
+              <strong>Application fees due — ₹5,500</strong>
+              <span>IIT Bombay (₹3,000) + NIT Trichy (₹2,500)</span>
+            </div>
+            <button class="tbl-btn approve" onclick="showToast('Redirecting to payment gateway...','success')">Pay Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications feed -->
+      <div class="card anim-4">
+        <div class="card-section-header" style="margin-bottom:1rem"><span>Recent updates</span><span class="badge info">3 new</span></div>
+        <div style="display:flex;flex-direction:column;gap:0">
+          <div class="notif-row" style="padding:12px 0;border-bottom:1px solid var(--border-faint)">
+            <div class="notif-icon warn-icon">!</div>
+            <div style="flex:1">
+              <div style="font-size:13.5px">Transfer certificate still pending upload.</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:2px">2 hours ago</div>
+            </div>
+            <span class="badge warning">Urgent</span>
+          </div>
+          <div class="notif-row" style="padding:12px 0;border-bottom:1px solid var(--border-faint)">
+            <div class="notif-icon success-icon">✓</div>
+            <div>
+              <div style="font-size:13.5px">Class X marksheet verified by Mrs. Priya Nair.</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Yesterday</div>
+            </div>
+          </div>
+          <div class="notif-row" style="padding:12px 0">
+            <div class="notif-icon info-icon">i</div>
+            <div>
+              <div style="font-size:13.5px">IIT Bombay portal opens Feb 20 — prepare documents.</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Feb 12</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="dash-section" id="section-timeline">
+      <div class="dash-header">
+        <div><h1>Application Timeline</h1><p class="header-sub">Every step of Aarav's enrollment journey</p></div>
+      </div>
+
+      <div class="card anim-2" style="max-width:680px">
+        <div class="timeline-list">
+          <div class="tl-item done">
+            <div class="tl-marker"><div class="tl-dot done"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-title">Profile created & submitted</div>
+              <div class="tl-date">January 10, 2025</div>
+              <div class="tl-detail">Basic information, academic records, and stream details filled in.</div>
+            </div>
+          </div>
+          <div class="tl-item done">
+            <div class="tl-marker"><div class="tl-dot done"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-title">3 of 5 documents uploaded</div>
+              <div class="tl-date">February 2, 2025</div>
+              <div class="tl-detail">Marksheets and Aadhaar verified. Transfer certificate and photo still pending.</div>
+            </div>
+          </div>
+          <div class="tl-item current">
+            <div class="tl-marker"><div class="tl-dot current"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-title">College applications in progress</div>
+              <div class="tl-date">February 14, 2025 · Now</div>
+              <div class="tl-detail">IIT Bombay and NIT Trichy shortlisted. Awaiting final submission after docs are complete.</div>
+            </div>
+          </div>
+          <div class="tl-item pending">
+            <div class="tl-marker"><div class="tl-dot pending"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-title">School verification</div>
+              <div class="tl-date">Expected: February 20–25</div>
+              <div class="tl-detail">Mrs. Priya Nair will review and approve Aarav's complete application.</div>
+            </div>
+          </div>
+          <div class="tl-item pending">
+            <div class="tl-marker"><div class="tl-dot pending"></div><div class="tl-line"></div></div>
+            <div class="tl-content">
+              <div class="tl-title">College merit lists & counselling</div>
+              <div class="tl-date">Expected: March 15–30</div>
+              <div class="tl-detail">JoSAA / college-specific counselling begins. Seat allocation rounds.</div>
+            </div>
+          </div>
+          <div class="tl-item pending">
+            <div class="tl-marker"><div class="tl-dot pending"></div></div>
+            <div class="tl-content">
+              <div class="tl-title">Admission confirmed</div>
+              <div class="tl-date">Estimated: May 2025</div>
+              <div class="tl-detail">Seat acceptance and fee payment at chosen college.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEES -->
+    <section class="dash-section" id="section-fees">
+      <div class="dash-header">
+        <div><h1>Fee Payments</h1><p class="header-sub">Track all application and registration fees</p></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:860px">
+        <div class="card anim-2">
+          <div class="card-section-header" style="margin-bottom:1rem"><span>Payment history</span></div>
+          <div class="fee-row"><div class="fee-label">Registration fee</div><div class="fee-amount paid">₹2,000 <span class="badge success">Paid</span></div></div>
+          <div class="fee-row"><div class="fee-label">Document verification</div><div class="fee-amount paid">₹500 <span class="badge success">Paid</span></div></div>
+          <div class="fee-row total-row"><div class="fee-label">Total paid</div><div class="fee-amount paid" style="font-size:16px;font-weight:600">₹2,500</div></div>
+        </div>
+
+        <div class="card anim-3">
+          <div class="card-section-header" style="margin-bottom:1rem"><span>Dues</span><span class="badge danger">₹5,500 pending</span></div>
+          <div class="fee-row"><div class="fee-label">IIT Bombay application</div><div class="fee-amount due">₹3,000</div></div>
+          <div class="fee-row"><div class="fee-label">NIT Trichy application</div><div class="fee-amount due">₹2,500</div></div>
+          <div class="fee-row total-row"><div class="fee-label">Total due</div><div class="fee-amount due" style="font-size:16px;font-weight:600">₹5,500</div></div>
+          <button class="btn-primary" style="width:100%;margin-top:1rem" onclick="showToast('Redirecting to payment gateway...','success')">Pay ₹5,500 →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESSAGES -->
+    <section class="dash-section" id="section-messages">
+      <div class="dash-header">
+        <div><h1>Messages</h1><p class="header-sub">Direct communication with Aarav's school coordinator</p></div>
+      </div>
+
+      <div class="card anim-2" style="max-width:680px">
+        <div class="messages-thread">
+          <div class="msg-bubble school">
+            <div class="msg-sender">Mrs. Priya Nair · Class Coordinator</div>
+            <div class="msg-text">Dear Mr. Sharma, please ensure Aarav uploads his Transfer Certificate at the earliest. The deadline for document submission is February 25th.</div>
+            <div class="msg-time">Feb 13 · 11:30 AM</div>
+          </div>
+          <div class="msg-bubble you">
+            <div class="msg-sender">You</div>
+            <div class="msg-text">Thank you for the reminder. We will get it uploaded today itself. Also, can Aarav submit applications to more than 3 colleges?</div>
+            <div class="msg-time">Feb 13 · 2:15 PM</div>
+          </div>
+          <div class="msg-bubble school">
+            <div class="msg-sender">Mrs. Priya Nair · Class Coordinator</div>
+            <div class="msg-text">Yes, the portal allows up to 5 colleges. He should complete the documents first, and then the additional applications will be unlocked automatically.</div>
+            <div class="msg-time">Feb 13 · 3:45 PM</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+        <div style="display:flex;gap:10px;align-items:flex-end">
+          <textarea id="msg-input" rows="2" style="flex:1;background:var(--bg-input);border:1px solid var(--border-soft);border-radius:var(--r-md);color:var(--text-primary);font-family:var(--font-body);font-size:14px;padding:10px 14px;resize:none" placeholder="Write a message..."></textarea>
+          <button class="btn-primary" onclick="sendMessage()" style="padding:10px 20px;height:fit-content">Send →</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/canvas.js"></script>
+<script src="../js/dashboard.js"></script>
+<script>
+  function sendMessage() {
+    const input = document.getElementById('msg-input');
+    if (!input.value.trim()) return;
+    showToast('Message sent to Mrs. Priya Nair', 'success');
+    input.value = '';
+  }
+</script>
+</body>
+</html>

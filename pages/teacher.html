@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Dashboard — EnrollPath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="../css/dashboard.css"/>
+</head>
+<body>
+<div class="demo-banner">🚧 This is a <strong>demo site</strong> — no real auth, no real data. Built for presentation purposes only.</div>
+<canvas id="bg-canvas"></canvas>
+
+<div class="dash-shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">Enroll<span>Path</span></div>
+    <div class="sidebar-section">Teacher Panel</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" class="active" onclick="showSection('overview',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a></li>
+      <li><a href="#" onclick="showSection('applications',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        All Applications
+      </a></li>
+      <li><a href="#" onclick="showSection('pending',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Pending Review
+      </a></li>
+      <li><a href="#" onclick="showSection('notify',this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        Notifications
+      </a></li>
+    </ul>
+
+    <div class="sidebar-user">
+      <div class="user-avatar" style="background:var(--gold-dim);color:var(--gold)">PN</div>
+      <div class="user-info">
+        <div class="user-name">Mrs. Priya Nair</div>
+        <div class="user-role">Class XII Coordinator</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+
+    <!-- OVERVIEW -->
+    <section class="dash-section active" id="section-overview">
+      <div class="dash-header">
+        <div>
+          <h1>Teacher Dashboard</h1>
+          <p class="header-sub">DPS R.K. Puram · Session 2025–26 · Manage all applications</p>
+        </div>
+        <button class="btn-primary">Export Report ↓</button>
+      </div>
+
+      <div class="stats-grid anim-2">
+        <div class="stat-card">
+          <div class="stat-label">Total Students</div>
+          <div class="stat-value b">84</div>
+          <div class="stat-delta">Class XII</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Submitted</div>
+          <div class="stat-value t">61</div>
+          <div class="stat-delta">72.6% completion</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pending Review</div>
+          <div class="stat-value g">18</div>
+          <div class="stat-delta">Docs awaiting check</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Docs Incomplete</div>
+          <div class="stat-value c">5</div>
+          <div class="stat-delta">Action required</div>
+        </div>
+      </div>
+
+      <!-- Completion progress -->
+      <div class="card anim-3" style="margin-bottom:1rem">
+        <div class="card-section-header"><span>Class completion progress</span><span class="badge success">72.6%</span></div>
+        <div style="display:grid;gap:10px;margin-top:4px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:4px"><span>Profiles complete</span><span>79/84</span></div>
+            <div class="prog-bar"><div class="prog-fill" style="width:94%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:4px"><span>Documents uploaded</span><span>61/84</span></div>
+            <div class="prog-bar"><div class="prog-fill" style="width:73%;background:var(--gold)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:4px"><span>Applications submitted</span><span>61/84</span></div>
+            <div class="prog-bar"><div class="prog-fill" style="width:73%;background:var(--info)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:4px"><span>Fully verified</span><span>43/84</span></div>
+            <div class="prog-bar"><div class="prog-fill" style="width:51%;background:var(--coral)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick summary table -->
+      <div class="card anim-4">
+        <div class="card-section-header"><span>Recent activity</span><button class="tbl-btn" onclick="showSection('applications',null)">View all →</button></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Student</th><th>%</th><th>Documents</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Aarav Sharma</strong></td><td>94.6%</td><td><span class="badge warning">3/5</span></td><td><span class="badge warning">Pending</span></td><td><button class="tbl-btn" onclick="nudge('Aarav Sharma')">Nudge</button></td></tr>
+              <tr><td><strong>Meera Pillai</strong></td><td>97.2%</td><td><span class="badge success">5/5</span></td><td><span class="badge info">In Review</span></td><td><button class="tbl-btn approve" onclick="approve('Meera Pillai')">Approve</button><button class="tbl-btn reject" onclick="reject('Meera Pillai')">Reject</button></td></tr>
+              <tr><td><strong>Rohan Gupta</strong></td><td>88.4%</td><td><span class="badge success">5/5</span></td><td><span class="badge success">Approved</span></td><td><button class="tbl-btn">View</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALL APPLICATIONS -->
+    <section class="dash-section" id="section-applications">
+      <div class="dash-header">
+        <div>
+          <h1>All Applications</h1>
+          <p class="header-sub">84 students · 61 submitted</p>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <input class="search-inline" type="text" id="app-search" placeholder="Search student..." oninput="filterTable(this.value)"/>
+          <select class="search-inline" id="status-filter" onchange="filterTable(document.getElementById('app-search').value)">
+            <option value="">All</option>
+            <option value="Approved">Approved</option>
+            <option value="In Review">In Review</option>
+            <option value="Pending">Pending</option>
+            <option value="Docs Missing">Docs Missing</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card anim-2">
+        <div class="table-wrap">
+          <table id="applications-table">
+            <thead>
+              <tr><th>Student</th><th>Stream</th><th>%</th><th>Colleges</th><th>Docs</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="app-tbody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENDING REVIEW -->
+    <section class="dash-section" id="section-pending">
+      <div class="dash-header">
+        <div>
+          <h1>Pending Review</h1>
+          <p class="header-sub">Students awaiting document verification</p>
+        </div>
+        <button class="btn-primary" onclick="approveAll()">Approve All ✓</button>
+      </div>
+
+      <div class="card anim-2">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Student</th><th>%</th><th>Missing Docs</th><th>Last Updated</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Aarav Sharma</strong></td><td>94.6%</td><td style="color:var(--coral)">Transfer Cert, Photo</td><td>Feb 14</td><td><button class="tbl-btn" onclick="nudge('Aarav Sharma')">Send Reminder</button></td></tr>
+              <tr><td><strong>Ananya Krishnan</strong></td><td>91.0%</td><td style="color:var(--coral)">4 docs missing</td><td>Feb 10</td><td><button class="tbl-btn" onclick="nudge('Ananya Krishnan')">Send Reminder</button></td></tr>
+              <tr><td><strong>Dev Malhotra</strong></td><td>86.5%</td><td style="color:var(--gold)">Awaiting verification</td><td>Feb 13</td><td><button class="tbl-btn approve" onclick="approve('Dev Malhotra')">Approve</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+    <section class="dash-section" id="section-notify">
+      <div class="dash-header">
+        <div><h1>Notifications</h1><p class="header-sub">Broadcast messages to students and parents</p></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div class="card anim-2">
+          <div class="card-section-header" style="margin-bottom:1rem"><span>Send notification</span></div>
+          <div class="field-group">
+            <label>Recipient group</label>
+            <select>
+              <option>All students</option>
+              <option>Pending documents</option>
+              <option>Parents only</option>
+              <option>Specific student</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Message</label>
+            <textarea rows="4" style="background:var(--bg-input);border:1px solid var(--border-soft);border-radius:var(--r-md);color:var(--text-primary);font-family:var(--font-body);font-size:14px;padding:11px 14px;resize:vertical;width:100%" placeholder="Type your message..."></textarea>
+          </div>
+          <button class="btn-primary" onclick="showToast('Notification sent to all students!','success')">Send Message →</button>
+        </div>
+
+        <div class="card anim-3">
+          <div class="card-section-header" style="margin-bottom:1rem"><span>Recent notifications</span></div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="notif-row">
+              <div class="notif-icon success-icon">✓</div>
+              <div>
+                <div style="font-size:13.5px;font-weight:500">Deadline reminder sent</div>
+                <div style="font-size:12px;color:var(--text-muted)">All 84 students · 2 hours ago</div>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="notif-icon warn-icon">!</div>
+              <div>
+                <div style="font-size:13.5px;font-weight:500">5 docs pending alert</div>
+                <div style="font-size:12px;color:var(--text-muted)">Parents of 5 students · Yesterday</div>
+              </div>
+            </div>
+            <div class="notif-row">
+              <div class="notif-icon info-icon">i</div>
+              <div>
+                <div style="font-size:13.5px;font-weight:500">Portal update published</div>
+                <div style="font-size:12px;color:var(--text-muted)">All users · Feb 12</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/canvas.js"></script>
+<script src="../js/dashboard.js"></script>
+<script>
+  const students = [
+    { name:'Aarav Sharma',    stream:'Science', pct:'94.6%', colleges:'IIT Bombay, NIT Trichy', docs:'3/5', status:'Pending' },
+    { name:'Meera Pillai',    stream:'Science', pct:'97.2%', colleges:'IIT Delhi, BITS +2',     docs:'5/5', status:'In Review' },
+    { name:'Rohan Gupta',     stream:'Science', pct:'88.4%', colleges:'VIT, Manipal',            docs:'5/5', status:'Approved' },
+    { name:'Ananya Krishnan', stream:'Science', pct:'91.0%', colleges:'IIIT Hyd +3',            docs:'1/5', status:'Docs Missing' },
+    { name:'Vikram Singh',    stream:'Science', pct:'92.8%', colleges:'NIT Surathkal +1',        docs:'5/5', status:'In Review' },
+    { name:'Priya Mehta',     stream:'Commerce', pct:'89.2%', colleges:'SRCC, Lady Shri Ram',   docs:'5/5', status:'Approved' },
+    { name:'Dev Malhotra',    stream:'Science', pct:'86.5%', colleges:'VIT Vellore',             docs:'4/5', status:'Pending' },
+  ];
+
+  const statusBadge = { 'Approved':'success', 'In Review':'info', 'Pending':'warning', 'Docs Missing':'danger' };
+
+  function renderStudents(list) {
+    document.getElementById('app-tbody').innerHTML = list.map(s => `
+      <tr>
+        <td><strong>${s.name}</strong></td>
+        <td>${s.stream}</td>
+        <td>${s.pct}</td>
+        <td style="color:var(--text-secondary)">${s.colleges}</td>
+        <td><span class="badge ${s.docs==='5/5'?'success':'warning'}">${s.docs}</span></td>
+        <td><span class="badge ${statusBadge[s.status]}">${s.status}</span></td>
+        <td>
+          ${s.status==='In Review'
+            ? `<button class="tbl-btn approve" onclick="approve('${s.name}')">Approve</button><button class="tbl-btn reject" onclick="reject('${s.name}')">Reject</button>`
+            : s.status==='Pending'||s.status==='Docs Missing'
+            ? `<button class="tbl-btn" onclick="nudge('${s.name}')">Nudge</button>`
+            : `<button class="tbl-btn">View</button>`
+          }
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function filterTable(q) {
+    const sf = document.getElementById('status-filter').value;
+    renderStudents(students.filter(s =>
+      (!q || s.name.toLowerCase().includes(q.toLowerCase())) &&
+      (!sf || s.status === sf)
+    ));
+  }
+
+  function nudge(name)    { showToast(`Reminder sent to ${name}`, 'success'); }
+  function approve(name)  { showToast(`${name} approved ✓`, 'success'); }
+  function reject(name)   { showToast(`${name}'s application returned`, 'warning'); }
+  function approveAll()   { showToast('All pending applications approved!', 'success'); }
+
+  renderStudents(students);
+</script>
+</body>
+</html>
