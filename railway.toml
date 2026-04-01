@@ -1,2 +1,5 @@
+[build]
+builder = "nixpacks"
+
 [deploy]
-startCommand = "npm start"
+startCommand = "npx -y serve@14 . -l $PORT"
